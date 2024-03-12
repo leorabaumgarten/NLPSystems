@@ -6,7 +6,7 @@ To see the pages point your browser at http://127.0.0.1:5000.
 
 from flask import Flask, request, render_template
 
-import ner
+import nlp
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def index():
         return render_template('form.html', input=input)
     else:
         text = request.form['text']
-        doc = ner.SpacyDocument(text)
+        doc = nlp.SpacyDocument(text)
         markup = doc.get_entities_with_markup()
         ner_formatted = ''
         for line in markup.split('\n'):

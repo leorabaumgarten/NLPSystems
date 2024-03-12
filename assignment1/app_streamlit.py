@@ -6,7 +6,7 @@ import pandas as pd
 import altair as alt
 import graphviz
 
-import ner
+import nlp
 
 
 example = (
@@ -23,7 +23,7 @@ st.markdown('## spaCy Visualization')
 
 text = st.text_area('Text to process', value=example, height=100)
 
-doc = ner.SpacyDocument(text)
+doc = nlp.SpacyDocument(text)
 
 with st.sidebar:
     add_radio = st.radio("Select view", ("entities", "dependencies"))

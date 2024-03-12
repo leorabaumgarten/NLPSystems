@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href='/' class="active">Parse new input</a></li>
+        <li><a href='/database'>View database</a></li>
+      </ul>
+    </nav>
+    <h2>spaCy entity and dependency parsing</h2>
+
+    <p>Replace the text below (or use it) and click submit.</p>
+
+    <form method="POST" action="/">
+      <textarea name="text" rows="13" cols="80">{{input}}</textarea>
+      <p><input type="submit"/></p>
+    </form>
+
+  </body>
+
+</html>

@@ -5,7 +5,7 @@ FastAPI interface to spaCy NER and dependency parser
 import json
 from fastapi import FastAPI, Response
 from pydantic import BaseModel
-import ner
+import nlp
 
 app = FastAPI()
 
@@ -30,7 +30,7 @@ def index(pretty: bool = False):
 
 @app.post('/ner')
 def entities(item: Item, pretty: bool = False):
-    doc = ner.SpacyDocument(item.text)
+    doc = nlp.SpacyDocument(item.text)
     answer = {'input': item.text, 'output': doc.get_entities()}
     if pretty:
         answer = prettify(answer)
@@ -39,7 +39,7 @@ def entities(item: Item, pretty: bool = False):
 
 @app.post('/dep')
 def dependencies(item: Item, pretty: bool = False):
-    doc = ner.SpacyDocument(item.text)
+    doc = nlp.SpacyDocument(item.text)
     answer = {'input': item.text, 'output': doc.get_dependencies()}
     if pretty:
         answer = prettify(answer)

@@ -32,7 +32,7 @@ curl -X POST -H "Content-Type: application/json" -d@input.json http://127.0.0.1:
 and for dependency parsing, run
 
 ```
-curl -X POST -H \"Content-Type: application/json\" -d@input.json http://127.0.0.1:8000/dep
+curl -X POST -H "Content-Type: application/json" -d@input.json http://127.0.0.1:8000/dep
 ```
 
 For nicely formatted results, add `?pretty=true` to the end of the urls in any of the previous commands.

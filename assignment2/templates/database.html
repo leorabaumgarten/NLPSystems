@@ -1,0 +1,38 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a href='/'>Parse new input</a></li>
+        <li><a href='/database' class="active">View database</a></li>
+      </ul>
+    </nav>
+
+    <p>Entities and their heads:</p>
+        
+        <table class="outer-table">
+            {% for ent in entities %}
+              <tr>
+                <td class="outer-table">{{ ent }}</td>
+                <td class="outer-table">{{ entities[ent]['count'] }}</td>
+                <td class="outer-table"> 
+                    <table class="inner-table"> 
+                        {% for dep in entities[ent]['dependencies'] %}
+                        <tr>
+                            <td class="inner-column">{{ dep[0] }}</td>
+                            <td class="inner-column">{{ dep[1] }}</td>
+                            <td class="inner-column">{{ dep[2] }} </td>
+                            <td class="inner-column">{{ entities[ent]['dependencies'][dep] }}</td>
+                    </tr> {% endfor %} </table> </td>
+              </tr>
+            {% endfor %}
+          </table>
+        
+
+  </body>
+
+</html>
